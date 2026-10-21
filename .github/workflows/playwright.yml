@@ -1,0 +1,54 @@
+name: TaskBoard Cucumber Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  cucumber-tests:
+    name: Cucumber - ${{ matrix.browser }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+
+    env:
+      CI: "true"
+      BROWSER: ${{ matrix.browser }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+
+      - name: Run Cucumber tests
+        run: npx cucumber-js
+
+      - name: Upload Cucumber report and test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cucumber-results-${{ matrix.browser }}
+          path: |
+            reports/cucumber-report.html
+            reports/trace-*.zip
+            reports/failure-*.png
+          if-no-files-found: warn
+          retention-days: 30

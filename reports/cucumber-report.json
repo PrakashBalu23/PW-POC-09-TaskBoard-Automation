@@ -1,0 +1,129 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "taskboard-issue-management;create-a-task-successfully",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Create a task successfully",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 2304433700
+            },
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I open the TaskBoard board",
+            "match": {
+              "location": "step-definitions\\taskboard.steps.js:20"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 922089799
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I create a task with valid details",
+            "match": {
+              "location": "step-definitions\\taskboard.steps.js:29"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 33943800
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "the new task should appear on the board",
+            "match": {
+              "location": "step-definitions\\taskboard.steps.js:34"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 416596099
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "taskboard-issue-management;verify-mandatory-field-validations-when-creating-an-issue",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Verify mandatory field validations when creating an issue",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1726788300
+            },
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "I open the TaskBoard board",
+            "match": {
+              "location": "step-definitions\\taskboard.steps.js:20"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 807207199
+            },
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "I submit the create issue form without required fields",
+            "match": {
+              "location": "step-definitions\\taskboard.steps.js:38"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 113708599
+            },
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should see the mandatory field validation messages",
+            "match": {
+              "location": "step-definitions\\taskboard.steps.js:43"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 621438799
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "taskboard-issue-management",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "TaskBoard Issue Management",
+    "tags": [],
+    "uri": "features\\taskboard.feature"
+  }
+]
